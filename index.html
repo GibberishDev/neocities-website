@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-16">
     <title>Gibb's Corner</title>
+    <link rel="stylesheet" href="./startup_loading.css">
 </head>
-<body>
-    
+<body style="margin: 0; background: black;">
+    <div id="gibb-os-startup-loading-screen">
+        <script defer src="scripts/bootloader.js"></script>
+        <div id="startup-boot-text">
+            <p style="animation-delay: 500ms;">Initialising boot loader</p>
+            <p style="animation-delay: 510ms;">Looking for  bootable devices</p>
+            <p style="animation-delay: 560ms;">Found valid boot device: GibbOS installation on /dev/sdb1</p>
+            <p style="animation-delay: 570ms;">Booting GibbOS v1.0.5</p>
+            <p style="animation-delay: 600ms;">Reading system data ...</p>
+            <p style="animation-delay: 800ms;">Starting system event service ...</p>
+            <p style="animation-delay: 850ms;">Starting hardware driver portal ...</p>
+            <p style="animation-delay: 1000ms;">Reading user data ...</p>
+            <p style="animation-delay: 1250ms;">Found 2 users:</p>
+            <p style="animation-delay: 1250ms;"> Admins: 1</p>
+            <p style="animation-delay: 1250ms;"> Users : 0</p>
+            <p style="animation-delay: 1250ms;"> Guests: 1</p>
+            <p style="animation-delay: 1300ms;">Loading graphics library ...</p>
+        </div>
+        <div id="boot-splash" style="display: none;">
+            <div class="boot-splash-image"></div>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
