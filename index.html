@@ -3,25 +3,44 @@
 <head>
     <meta charset="UTF-16">
     <title>Gibb's Corner</title>
-    <link rel="stylesheet" href="./startup_loading.css">
+    <link rel="stylesheet" href="./assets/styles/startup_loading.css">
+    <link rel="stylesheet" href="./assets/styles/login_screen.css">
 </head>
 <body style="margin: 0; background: black;">
+    <div id="login-screen" style="display: none;">
+        <div class="animated-stripe"></div>
+        <div class="panel">
+            <div class="login-logo-container"></div>
+            <div class="vertical-separator"></div>
+            <div class="login-user-list"></div>
+        </div>
+        <div class="animated-stripe"></div>
+    </div>
     <div id="gibb-os-startup-loading-screen">
         <script defer src="scripts/bootloader.js"></script>
         <div id="startup-boot-text">
-            <p style="animation-delay: 500ms;">Initialising boot loader</p>
-            <p style="animation-delay: 510ms;">Looking for  bootable devices</p>
-            <p style="animation-delay: 560ms;">Found valid boot device: GibbOS installation on /dev/sdb1</p>
-            <p style="animation-delay: 570ms;">Booting GibbOS v1.0.5</p>
-            <p style="animation-delay: 600ms;">Reading system data ...</p>
-            <p style="animation-delay: 800ms;">Starting system event service ...</p>
-            <p style="animation-delay: 850ms;">Starting hardware driver portal ...</p>
-            <p style="animation-delay: 1000ms;">Reading user data ...</p>
-            <p style="animation-delay: 1250ms;">Found 2 users:</p>
-            <p style="animation-delay: 1250ms;"> Admins: 1</p>
-            <p style="animation-delay: 1250ms;"> Users : 0</p>
-            <p style="animation-delay: 1250ms;"> Guests: 1</p>
-            <p style="animation-delay: 1300ms;">Loading graphics library ...</p>
+            <p style="animation-delay: 500ms;">[ <span style="opacity:0">OK</span> ] Initialising boot loader</p>
+            <p style="animation-delay: 510ms;">[ <span style="opacity:0">OK</span> ] Looking for  bootable devices</p>
+            <p style="animation-delay: 560ms;">[ <span style="color:#0f0">OK</span> ] Found valid boot device: GibbOS installation on /dev/sdb1</p>
+            <p style="animation-delay: 570ms;">[ <span style="opacity:0">OK</span> ] Booting GibbOS v1.0.5</p>
+            <p style="animation-delay: 600ms;">[ <span style="opacity:0">OK</span> ] Reading system data ...</p>
+            <p style="animation-delay: 800ms;">[ <span style="opacity:0">OK</span> ] Starting system services ...</p>
+            <p style="animation-delay: 810ms;">[ <span style="color:#0f0">OK</span> ] SERVICE: systemctl</p>
+            <p style="animation-delay: 820ms;">[ <span style="color:#0f0">OK</span> ] SERVICE: systemd</p>
+            <p style="animation-delay: 830ms;">[ <span style="color:#0f0">OK</span> ] SERVICE: files</p>
+            <p style="animation-delay: 840ms;">[ <span style="color:#0f0">OK</span> ] SERVICE: sudo</p>
+            <p style="animation-delay: 850ms;">[ <span style="color:#0f0">OK</span> ] SERVICE: gpg</p>
+            <p style="animation-delay: 860ms;">[ <span style="color:#0f0">OK</span> ] SERVICE: network</p>
+            <p style="animation-delay: 870ms;">[ <span style="color:#0f0">OK</span> ] SERVICE: wlan</p>
+            <p style="animation-delay: 890ms;">[ <span style="color:#0f0">OK</span> ] SERVICE: jit-ready</p>
+            <p style="animation-delay: 950ms;">[ <span style="opacity:0">OK</span> ] Starting hardware driver portal ...</p>
+            <p style="animation-delay: 960ms;">[ <span style="color:#f00">ER</span> ] SERVICE: nvidia</p>
+            <p style="animation-delay: 970ms;">[ <span style="color:#0f0">OK</span> ] SERVICE: amd</p>
+            <p style="animation-delay: 1000ms;">[ <span style="opacity:0">OK</span> ] Reading user data ...</p>
+            <p style="animation-delay: 1250ms;">[ <span style="color:#0f0">OK</span> ] Found 2 users:</p>
+            <p style="animation-delay: 1250ms;"><span style="opacity:0"> [ OK ]</span> Admins: 1</p>
+            <p style="animation-delay: 1250ms;"><span style="opacity:0"> [ OK ]</span> Users : 1</p>
+            <p style="animation-delay: 1300ms;">[ <span style="opacity:0">OK</span> ] Loading graphics library ...</p>
         </div>
         <div id="boot-splash" style="display: none;">
             <div class="boot-splash-image"></div>

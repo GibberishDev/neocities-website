@@ -1,0 +1,48 @@
+
+:root {
+    --var-color-boot-background: #101010;
+    --var-color-boot-background-light: #52523f;
+    --var-color-boot-text: #a0a080;
+}
+#login-screen {
+    width:100dvw;height:100dvh;
+    position: fixed;
+    left:0;top:0;
+    background: var(--var-color-boot-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#login-screen .animated-stripe {
+    background: linear-gradient(90deg, var(--var-color-boot-text) 40%, #ff8400, var(--var-color-boot-text) 60%);
+    height: 2px;
+    background-size: 300% 100%;
+    animation: stripe-slide 10s linear infinite forwards;
+}
+@keyframes stripe-slide {
+    0% {background-position: -150% 0;}
+    100% {background-position: 150% 0;}
+}
+#login-screen .panel {
+    height: calc(80dvh - 4px);
+    background:var(--var-color-boot-background-light);
+    display: flex;
+    flex-direction: row;
+}
+#login-screen .vertical-separator {
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(transparent 20%, var(--var-color-boot-text), transparent 80%);
+}
+#login-screen .login-user-list,
+#login-screen .login-logo-container
+{
+    width: calc(50dvw - 1px);
+}
+
+@media screen and (width < 600px) {
+    #login-screen .vertical-separator,
+    #login-screen .login-logo-container {
+        display: none;
+    }
+}
