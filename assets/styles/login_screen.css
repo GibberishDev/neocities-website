@@ -1,20 +1,28 @@
 
 :root {
-    --var-color-boot-background: #101010;
-    --var-color-boot-background-light: #52523f;
-    --var-color-boot-text: #a0a080;
+    /* widows xp colors */
+    /* --var-color-login-screen-background: #162783;
+    --var-color-login-screen-background-dark: #101e6c;
+    --var-color-login-screen-background-light: #4965b0; */
+    --var-color-login-screen-background: #31560a;
+    --var-color-login-screen-background-dark: #223208;
+    --var-color-login-screen-background-light: #6b8d39;
+    --var-color-login-screen-text: white;
+}
+#login-screen img {
+    user-select: none;
 }
 #login-screen {
     width:100dvw;height:100dvh;
     position: fixed;
     left:0;top:0;
-    background: var(--var-color-boot-background);
+    background: linear-gradient(90deg,var(--var-color-login-screen-background-dark),var(--var-color-login-screen-background));
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 #login-screen .animated-stripe {
-    background: linear-gradient(90deg, var(--var-color-boot-text) 40%, #ff8400, var(--var-color-boot-text) 60%);
+    background: linear-gradient(90deg, var(--var-color-login-screen-text) 40%, #ff8400, var(--var-color-login-screen-text) 60%);
     height: 2px;
     background-size: 300% 100%;
     animation: stripe-slide 10s linear infinite forwards;
@@ -25,14 +33,14 @@
 }
 #login-screen .panel {
     height: calc(80dvh - 4px);
-    background:var(--var-color-boot-background-light);
+    background:var(--var-color-login-screen-background-light);
     display: flex;
     flex-direction: row;
 }
 #login-screen .vertical-separator {
     width: 2px;
     height: 100%;
-    background: linear-gradient(transparent 20%, var(--var-color-boot-text), transparent 80%);
+    background: linear-gradient(transparent 20%, var(--var-color-login-screen-text), transparent 80%);
 }
 #login-screen .login-user-list,
 #login-screen .login-logo-container
@@ -45,4 +53,126 @@
     #login-screen .login-logo-container {
         display: none;
     }
+    #login-screen .login-user-list {
+        width: 100%;
+    }
+}
+
+#login-screen .login-user-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 48px;
+}
+
+.user-select-container {
+    height: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+    opacity: .5;
+}
+.user-select-container:hover,
+.user-select-container.selected
+ {opacity: 1;}
+.user-select-container .ui {
+    display: grid;
+    grid-template-rows: 30px 14px 24px;
+    grid-template-columns: 70px 200px 24px;
+    column-gap: 12px;
+    position: relative;
+    top:-86px;
+}
+.user-select-container .background-panel {
+    height: 86px;
+    width: 100%;
+    border: 2px solid transparent;
+    border-right: none;
+    translate: -8px -8px;
+    border-radius: 16px 0 0 16px;
+    padding: 2px;
+    padding-right: 0;
+    background: linear-gradient(90deg, var(--var-color-login-screen-background), transparent);
+    background-image:
+        linear-gradient(to right, var(--var-color-login-screen-background) 50%, transparent), linear-gradient(to right, var(--var-color-login-screen-text), transparent 60%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-sizing: border-box;
+}
+.user-select-container .ui .user-profile-picture {
+    grid-row: 1 / -1;
+    width: 70px; height: 70px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 4px solid var(--var-color-login-screen-text);
+    overflow: hidden;
+}
+.user-select-container .ui .user-profile-picture img {
+    width: 100%;
+    aspect-ratio: 1;
+}
+.user-select-container .ui .user-name {
+    font-size: 30px;
+    line-height: 30px;
+    color: var(--var-color-login-screen-text);
+    font-family: Arial, Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    grid-row: 1 / 2;
+    grid-column: 2 / -1;
+    user-select: none;
+}
+.user-select-container .ui .input-box-tip,
+.user-select-container .ui .user-password-text-box,
+.user-select-container .ui .password-enter-button {
+    display: none;
+}
+.user-select-container.selected .ui .input-box-tip,
+.user-select-container.selected .ui .user-password-text-box,
+.user-select-container.selected .ui .password-enter-button {
+    display: block;
+}
+.user-select-container .ui .input-box-tip {
+    color: var(--var-color-login-screen-text);
+    margin-top:6px;
+    height: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    line-height: 14px;
+    font-size: 14px;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    font-weight: bold;
+    user-select: none;
+}
+.user-select-container .ui .user-password-text-box {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+    margin-top: 16px;
+    width: 200px;
+}
+.user-select-container .ui .user-password-text-box input {
+    height: 24px;
+    line-height: 30px;
+    font-size: 24px;
+    border-radius: 4px;
+    color: green;
+    outline: none;
+    border: 2px solid green;
+    -webkit-text-security: disc;
+    width: 100%;
+}
+.user-select-container .ui .password-enter-button {
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+    margin-top: 16px;
+    width: 30px;
+    height: 30px;
+    background: url(../images/continue.png);
+    background-size: cover;
+    margin-left: 8px;
+}
+.user-select-container .ui .password-enter-button:hover {
+    filter: brightness(110%);
+}
+.user-select-container .ui .password-enter-button:active {
+    filter: brightness(50%);
 }
