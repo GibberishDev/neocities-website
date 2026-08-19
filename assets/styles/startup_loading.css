@@ -18,9 +18,8 @@
     color: var(--var-color-boot-text);
     font-family: "DepartureMono", monospace;
     line-height: 1rem;
-    white-space: pre-wrap;
 }
-#startup-boot-text span{
+#startup-boot-text p{
     opacity: 0;
     margin: 0;
     animation: text-splash 1ms step-end forwards;

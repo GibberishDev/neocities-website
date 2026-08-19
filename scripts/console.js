@@ -1,6 +1,6 @@
 setInterval(()=>{
     sendMessage()
-},2000)
+},20000)
 function sendMessage() {
     console.clear()
     console.log("%cSTOP RIGHT THERE","background:black;color:red;font-size:2rem;font-weight:bold")
